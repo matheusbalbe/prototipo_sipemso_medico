@@ -1,0 +1,82 @@
+/*===============================================*/
+/*	 Motor de funções principal
+/*===============================================*/
+var Engine = function($) {
+	'use strict';
+
+	return {
+		/**
+		* @description Inicializa as funções
+		*/
+		init : function() {
+			var t = this;
+			t.fixLayoutHeight();
+			t.resize();
+		},
+		
+		/**
+		* @description Procura o maior número dentro do array e retorna
+        * @param numbers
+		*/
+		max : function(numbers) {
+			var max = 0;
+
+			Object.keys(numbers).forEach(function(key) {
+				if (numbers[key] > max) {
+					max = numbers[key];
+				}
+			});
+			return max;
+		},
+		
+		/**
+		* @description Corrige a estrutura do layout (header, content, footer) ao iniciar a página e/ou quando a janela é redimensionada
+		*/
+		fixLayoutHeight : function() {
+			var t = this;
+
+			/**
+			 * Constants ====================================================
+			 */
+			var Selector = {
+				HEADER      : '.navbar ',
+				CONTENT     : '.content',
+				SIDEBAR     : '',
+				FOOTER      : '.main-footer',
+                BOX_LOGIN   : '.login__main'
+			};
+
+			var heights = {
+				window : $(window).height(),
+				header : $(Selector.HEADER).length !== 0 ? $(Selector.HEADER).outerHeight() : 0,
+				content: "30", //Padding top + bottom
+				sidebar: $(Selector.SIDEBAR).length !== 0 ? $(Selector.SIDEBAR).height(): 0,
+				footer : $(Selector.FOOTER).length !== 0 ? $(Selector.FOOTER).outerHeight() : 0,			
+                login : $(Selector.BOX_LOGIN).length !== 0 ? $(Selector.BOX_LOGIN).outerHeight() : 0	
+			};
+
+			var max = t.max(heights);
+
+			if (max == heights.window) {
+				$(Selector.CONTENT).css('min-height', max - heights.header - heights.content - heights.footer);
+			} else {
+				$(Selector.CONTENT).css('min-height', max - heights.header - heights.content);
+			}
+		},
+		
+		/**
+		* @description Faz a chamadas das funções ao redimensionar a janela
+		*/
+		resize:function(){
+			var t = this;
+
+			$(window).resize(function() {
+				t.fixLayoutHeight();
+			});
+		}
+	}
+}(jQuery);
+
+$(function() {
+	Engine.init();
+});

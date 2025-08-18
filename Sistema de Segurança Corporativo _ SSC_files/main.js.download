@@ -1,0 +1,116 @@
+//Alto contraste
+(function() {
+	var Contrast = {
+		storage : 'contrastState',
+		cssClass : 'contrast',
+		currentState : null,
+		check : checkContrast,
+		getState : getContrastState,
+		setState : setContrastState,
+		toogle : toogleContrast,
+		updateView : updateViewContrast
+	};
+
+	window.toggleContrast = function() {
+		Contrast.toogle();
+	};
+
+	Contrast.check();
+
+	function checkContrast() {
+		this.updateView();
+	}
+
+	function getContrastState() {
+		return localStorage.getItem(this.storage) === 'true';
+	}
+
+	function setContrastState(state) {
+		localStorage.setItem(this.storage, '' + state);
+		this.currentState = state;
+		this.updateView();
+	}
+
+	function updateViewContrast() {
+		var body = document.body;
+
+		if (!body)
+			return;
+
+		if (this.currentState === null)
+			this.currentState = this.getState();
+
+		if (this.currentState)
+			body.classList.add(this.cssClass);
+		else
+			body.classList.remove(this.cssClass);
+	}
+
+	function toogleContrast() {
+		this.setState(!this.currentState);
+		return false
+	}
+})();
+
+// Fontes
+var font_is_large = false;
+function change_font_size() {
+	demo_paragraph = document.getElementById('demo');
+	if (!font_is_large) {
+		$(".changefont").css('font-size', '110%');
+		font_is_large = true;
+	} else {
+		$(".changefont").css('font-size', '130%');
+		font_is_large = true;
+	}
+}
+
+var font_is_normal = false;
+function change_font_initial() {
+	demo_paragraph = document.getElementById('demo');
+	if (!font_is_normal) {
+		$(".changefont").css('font-size', '100%');
+		font_is_normal = true;
+	} else {
+		$(".changefont").css('font-size', '100%');
+		font_is_large = false;
+	}
+}
+
+var eye = document.querySelector(".passeye");
+var inputpass = document.querySelector(".j_password");
+
+// Password eye
+function mouseDown() {
+	var eye = document.querySelector(".passeye");
+	var inputpass = document.querySelector(".j_password");
+
+	eye.classList.toggle("fa-eye-slash");
+	eye.classList.toggle("fa-eye");
+
+	var type = inputpass.getAttribute("type") === "password" ? "text" : "password";
+	inputpass.setAttribute("type", type)
+}
+
+function mouseUp() {
+	var eye = document.querySelector(".passeye");
+	var inputpass = document.querySelector(".j_password");
+
+	eye.classList.toggle("fa-eye");
+	eye.classList.toggle("fa-eye-slash");
+
+	var type = inputpass.getAttribute("type") === "text" ? "password" : "text";
+	inputpass.setAttribute("type", type);
+}
+
+function mouseMove() {
+	var eye = document.querySelector(".passeye");
+	var inputpass = document.querySelector(".j_password");
+
+	eye.classList.toggle("fa-eye-slash");
+	eye.classList.toggle("fa-eye-slash");
+
+	var type = inputpass.getAttribute("type") === "password" ? "password" : "password";
+	inputpass.setAttribute("type", type);
+}
+

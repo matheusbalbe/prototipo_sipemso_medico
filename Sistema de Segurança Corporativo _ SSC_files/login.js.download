@@ -1,0 +1,108 @@
+function logarComCertificado(host) {
+	if(!host){
+		host = 'http://autenticacao.signa.mg.gov.br/certificacao-digital-web/3.0.09';
+	}
+	
+	var params = {
+		//'version' : versao,
+		'enderecoDoServicoAssinatura': host,
+		'tipoProcesso' : 'logar',
+		'fecharAutomatico' : false
+	};
+	Signa.iniciarAssinaturaApi(params);
+
+	//window.location = getUrl()	+ '/j_security_check?cdig=true';
+	
+	try {
+		var fcdig = document.createElement('form');
+		fcdig.setAttribute('method','post');
+		fcdig.setAttribute('action',"j_security_check");
+		fcdig.style.visibility = 'hidden';
+		
+		
+		var i = document.createElement('input'); //input element, text
+		i.setAttribute('type','text');
+		i.setAttribute('name',"cdig");
+		i.value = 'cdig';
+						
+	
+		var s = document.createElement('input'); //input element, Submit button
+		s.setAttribute('type','submit');
+		s.setAttribute('value','Submit');
+		
+	
+		fcdig.appendChild(i);		
+		fcdig.appendChild(s);
+		
+		document.getElementsByTagName('body')[0].appendChild(fcdig);
+		
+		s.click();
+		
+	} catch(e) {
+		console.log(e);
+	}
+}
+
+function isIFrame() {
+	var s;
+	try {
+		s = window.self !== window.top;
+	} catch (e) {
+		s = true;
+	}
+
+	var iframe = window.top.document.getElementsByTagName("iframe")[0]
+			|| window.self.contentWindow;
+
+	if (iframe != undefined) {
+		document.getElementById("baseURI").value = window.top.document
+				.getElementsByTagName("iframe")[0].baseURI;
+	}
+
+	document.getElementById("isIFrame").value = s;
+
+	return s;
+}
+
+function changePasswordIcon(icon, elt) {	
+	if (typeof elt == "undefined") {
+		elt = document.getElementsByName('j_password')[0];
+	}
+	if (icon.classList.contains('fa-eye-slash')) {
+		icon.classList.remove('fa-eye-slash');
+		icon.classList.add('fa-eye');
+		elt.type = 'password';
+	} else {
+		icon.classList.remove('fa-eye');
+		icon.classList.add('fa-eye-slash');
+		elt.type = 'text';
+	}
+}
+
+function required() {
+	jq(".j_username").attr("required", "true");
+	jq(".j_password").attr("required", "true");
+}
+
+function requiredMany(fields) {
+	var fields = Array.prototype.slice.call(arguments);
+	for(field in fields) {
+		jq(field).attr("required", "true");
+	}
+}
+
+function alternarTela() {
+	jq('.login').stop().toggleClass('login-active');
+	jq('.login__optLogar_toggle').stop().toggleClass('off');
+	jq('.login__optLogar_close').stop().toggle();
+}
+
+function timeAlert(show) {
+	$(".well").removeClass("fadeOutDown").addClass("fadeInUp");
+	
+	if (show) {			
+		setTimeout(function() {
+			$(".well").removeClass("fadeInUp").addClass("fadeOutDown");
+		}, 3000);
+	} 
+}

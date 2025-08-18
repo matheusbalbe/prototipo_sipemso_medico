@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/agendamentos/agendamentos.css">
+<link rel="stylesheet" href="css/agendamentos/modalVincularMedico.css">
+
+<title>Sipemso.MG — Mock UI</title>
+</head>
+<body>
+  <div class="app">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand" title="Apenas demonstração">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="7" width="16" height="2" rx="1" fill="currentColor"/><rect x="4" y="11" width="16" height="2" rx="1" fill="currentColor"/><rect x="4" y="15" width="16" height="2" rx="1" fill="currentColor"/></svg>
+        <img src="logo-sipemso.png" alt="Sipemso.MG" style="height:45px;">
+      </div>
+      <div class="spacer"></div>
+      <div class="user">
+        <span class="muted">Notificações</span>
+        <div class="avatar">KB</div>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="side-title">Menu</div>
+        <nav class="nav">
+        <a  href="./dashboard.html">
+          <!-- home icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-10.5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Início
+        </a>
+        <a class="active" href="./agendamentos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8 0a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" transform="translate(0 9)" opacity="0"/><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="1.5" opacity=".4"/></svg>
+          Agendamentos
+        </a>
+        <a href="./cadastroMedicos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v14H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 9h16M9 4v-2m6 2v-2" stroke="currentColor" stroke-width="1.5"/></svg>
+          Cadastro Médicos
+        </a>
+      </nav>
+      <div class="footer-note">
+        Sistema de Perícia Médica e Saúde Ocupacional — demonstração visual.
+      </div>
+    </aside>
+
+    <!-- ====== MEUS AGENDAMENTOS ====== -->
+<section class="page-wrap">
+  <h1 class="page-h1">Agendamentos do dia</h1>
+
+  <div class="card agds-card">
+    <div class="agds-toolbar">
+      <div class="agds-month">Agosto</div>
+
+      <div class="agds-date-nav">
+        <button class="icon-btn" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <input class="agds-date" type="text" value="11/08/2025" aria-label="Data" />
+
+        <button class="icon-btn" aria-label="Próximo">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 19l7-7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <nav class="agds-tabs" aria-label="Intervalo">
+        <a href="#" class="tab active">Dia</a>
+        <a href="#" class="tab">Semana Útil</a>
+        <a href="#" class="tab">Mês</a>
+      </nav>
+    </div>
+
+    <div class="agds-table-wrap">
+      <table class="agds-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Finalidade</th>
+            <th>Nome do periciando</th>
+            <th>Situação</th>
+            <th>Ordem de chegada</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- linha 1 -->
+          <tr class="is-alt">
+            <td class="time">08:00</td>
+            <td>Licença Tratamento Saúde</td>
+            <td>Luana Beatriz de Jesus Veloso Freitas</td>
+            <td><span class="status status-success" style="color: #198754;">Atendido</span></td>
+            <td class="muted">-</td>
+            <td class="actions">
+              <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
+                <!-- link / chain icon para "vincular" -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </button>
+              <button class="icon-btn" title="Editar">
+                <!-- edit -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+              </button>
+            </td>
+          </tr>
+
+          <!-- linha 2 -->
+          <tr>
+            <td class="time">10:10</td>
+            <td>Licença Tratamento Saúde</td>
+            <td>Dulcely Vieira de Abreu</td>
+            <td><span class="status status-muted">Não atendido</span></td>
+            <td class="muted">-</td>
+            <td class="actions">
+                 <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
+                <!-- link / chain icon para "vincular" -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </button>
+              <button class="icon-btn" title="Editar">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+              </button>
+            </td>
+          </tr>
+
+          <!-- repita os <tr> abaixo conforme necessário -->
+          <tr class="is-alt">
+            <td class="time">11:20</td>
+            <td>Licença Tratamento Saúde</td>
+            <td>Eugenio Palma Avelar</td>
+            <td><span class="status status-muted">Não atendido</span></td>
+            <td class="muted">-</td>
+            <td class="actions">
+                  <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
+                <!-- link / chain icon para "vincular" -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </button>
+              <button class="icon-btn" title="Editar">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="time">13:30</td>
+            <td>Licença Tratamento Saúde</td>
+            <td>Vilma Oneide Dias</td>
+            <td><span class="status status-muted">Não atendido</span></td>
+            <td class="muted">-</td>
+            <td class="actions">
+                <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
+                <!-- link / chain icon para "vincular" -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </button>
+              <button class="icon-btn" title="Editar">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+              </button>
+            </td>
+          </tr>
+
+          <!-- ... continue as demais linhas (11:40, 11:50, 12:00 etc.) ... -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+  </div>
+  <!-- Botão de exemplo para abrir (remova se já abrir por linha da tabela) -->
+<button id="btnAbrirDemo" class="btn">Vincular médico (demo)</button>
+<!-- ===== Modal Vincular Médico ===== -->
+<div class="modal" id="modalVincular" aria-hidden="true">
+  <div class="modal__backdrop" onclick="fecharModalVinculo()"></div>
+  <div class="modal__dialog">
+    <header class="modal__header">
+      <h2>Vincular médico ao agendamento</h2>
+      <button class="icon-btn modal__close" onclick="fecharModalVinculo()">×</button>
+    </header>
+
+    <div class="modal__body">
+      <!-- Dados do agendamento -->
+      <div class="agnd-grid">
+        <div>
+          <label class="lbl">Hora</label>
+          <div class="ro">11:00</div>
+        </div>
+        <div>
+          <label class="lbl">Data</label>
+          <div class="ro">11/08/2025</div>
+        </div>
+        <div class="full">
+          <label class="lbl">Finalidade</label>
+          <div class="ro">Licença Tratamento Saúde</div>
+        </div>
+        <div class="full">
+          <label class="lbl">Nome do periciando</label>
+          <div class="ro">João da Silva</div>
+        </div>
+        <div>
+          <label class="lbl">Situação</label>
+          <div class="ro">Agendado</div>
+        </div>
+      </div>
+
+      <!-- Seleção do médico -->
+      <div class="field">
+        <label for="selMedico" class="lbl">Médico responsável</label>
+        <div class="custom-select-wrap">
+          <select id="selMedico" name="medicoId" class="custom-select">
+            <option value="">Selecione um médico…</option>
+            <option value="1">Dra. Ana Moreira</option>
+            <option value="2">Dr. Bruno Carvalho</option>
+            <option value="3">Dra. Camila Rocha</option>
+            <option value="4">Dr. Daniel Pires</option>
+          </select>
+          <span class="custom-select-arrow"></span>
+        </div>
+        <style>
+        .custom-select-wrap {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+        }
+        .custom-select {
+          width: 100%;
+          padding: 10px 38px 10px 12px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          background: #fff;
+          font-size: 1rem;
+          appearance: none;
+          -webkit-appearance: none;
+          transition: border-color 0.2s;
+        }
+        .custom-select:focus {
+          border-color: #1976d2;
+          outline: none;
+        }
+        .custom-select-arrow {
+          pointer-events: none;
+          position: absolute;
+          top: 50%;
+          right: 14px;
+          width: 0;
+          height: 0;
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-top: 7px solid #888;
+          transform: translateY(-50%);
+        }
+        </style>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="modal__footer">
+      <button class="btn btn-ghost" onclick="fecharModalVinculo()">Cancelar</button>
+      <button class="btn btn-primary" onclick="alert('Médico vinculado!')">Vincular</button>
+    </footer>
+  </div>
+</div>
+
+
+</body>
+<script src="js/agendamentos.js"></script>
+</html>

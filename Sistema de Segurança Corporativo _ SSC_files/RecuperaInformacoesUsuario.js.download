@@ -1,0 +1,70 @@
+//document.write("<script src='" + getUrl()
+//		+ "/ssc/js/deployJava.js' type='text/javascript'></scr" + "ipt>");
+
+function carregarRecuperaInformacoesUsuarioApplet() {
+
+//	if (deployJava.getJREs().length != 0) {
+//		var sessionId = lerCookie("JSESSIONID");
+//		var data = new Date();
+//		var mainClass = "br.gov.prodigio.ssc.admin.comuns.applet.RecuperaInformacoesUsuarioApplet";
+//		var jarApplet = "resources/META-INF/resources/applet/ssc-admin-comum-3.0.110.jar?d="
+//				+ data.getMilliseconds();
+//		var applet = "<object id='objetoAppletPrd' name='Applet' width='0' height='0' type='application/x-java-applet' mayscript='true'>";
+//		applet += "<param name='code' value='" + mainClass + "' />";
+//		applet += "<param name='codebase' value='" + getUrl() + "' />";
+//		applet += "<param name='archive' value='" + jarApplet + "' />";
+//		applet += "<param name='jsessionid' value='" + sessionId + "' />";
+//		applet += "<comment>";
+//		applet += "<embed src='" + jarApplet
+//				+ "' type='application/x-java-applet;version=1.7' archive='"
+//				+ jarApplet + "' ";
+//		applet += "code='" + mainClass + "' codebase='" + getUrl()
+//				+ "' jsessionid='" + sessionId + "' mayscript='true'>";
+//		applet += "<noembed>No Java Support.</noembed>";
+//		applet += "</embed>";
+//		applet += "</comment></object>";
+//
+//		var iDiv = document.createElement('div');
+//		iDiv.id = 'RecuperaInformacoesUsuarioAppletDiv';
+//		iDiv.innerHTML = applet;
+//		document.body.appendChild(iDiv);
+//	}
+}
+
+function getUrl() {
+	var url;
+	var protocolo = location.protocol;
+	var dominio = document.domain;
+	var caminho = location.pathname;
+	var porta = location.port;
+
+	if (!!caminho) {
+		caminho = caminho.split("/")[1];
+		url = protocolo + "//" + dominio + ":" + porta + "/" + caminho;
+	} else {
+		url = protocolo + "//" + dominio + ":" + porta;
+	}
+	return url;
+}
+
+function lerCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1, c.length);
+		}
+		if (c.indexOf(nameEQ) === 0) {
+			return c.substring(nameEQ.length, c.length);
+		}
+	}
+	return null;
+}
+
+function removerDivApplet() {
+	var elemento = document.getElementById("RecuperaInformacoesUsuarioAppletDiv");
+	if (elemento != null){
+		elemento && elemento.parentNode && elemento.parentNode.removeChild(elemento);		
+	}
+}

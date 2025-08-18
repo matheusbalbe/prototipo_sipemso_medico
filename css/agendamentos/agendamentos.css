@@ -1,0 +1,91 @@
+/* ====== estilos da seção Meus agendamentos ====== */
+.page-wrap{padding:18px 24px}
+.page-h1{
+  margin:0 0 12px;
+  font-size:28px;font-weight:800;color:#1f2937;
+  display:flex;align-items:center;gap:8px
+}
+.page-h1 .star{color:#0ea5e9}
+
+.card{
+  background:#fff;border:1px solid #e5e7eb;border-radius:14px;
+  box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06)
+}
+
+/* toolbar */
+.agds-card{padding:0}
+.agds-toolbar{
+  display:grid;grid-template-columns:1fr auto auto;
+  align-items:center;gap:16px;padding:18px;border-bottom:1px solid #e5e7eb
+}
+.agds-month{
+  text-align:center;font-weight:800;color:#334155;font-size:18px
+}
+.agds-date-nav{display:flex;align-items:center;gap:10px;justify-self:center}
+.agds-date{
+  height:36px;padding:0 12px;border:1px solid #d1d5db;border-radius:10px;
+  font-weight:600;color:#374151;min-width:150px;text-align:center
+}
+.icon-btn{
+  border:1px solid #dbeafe;background:#fff;border-radius:10px;
+  width:36px;height:36px;display:grid;place-items:center;color:#1d4ed8;
+  cursor:pointer
+}
+.icon-btn:hover{background:#eff6ff}
+
+.agds-tabs{
+  display:flex;gap:18px;justify-content:flex-end
+}
+.agds-tabs .tab{
+  padding:10px 8px;text-decoration:none;color:#2563eb;font-weight:700;
+  border-bottom:2px solid transparent
+}
+.agds-tabs .tab:hover{border-color:#bfdbfe}
+.agds-tabs .tab.active{border-color:#2563eb}
+
+/* tabela */
+.agds-table-wrap{padding:12px 18px 18px}
+.agds-table{
+  width:100%;border-collapse:separate;border-spacing:0 10px
+}
+.agds-table thead th{
+  text-align:left;font-weight:700;color:#334155;font-size:14px;
+  padding:0 16px 6px
+}
+.agds-table tbody tr{
+  border:1px solid #e5e7eb;background:#fff
+}
+.agds-table tbody td{
+  padding:14px 16px;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb
+}
+.agds-table tbody tr td:first-child,
+.agds-table thead th:first-child{border-left:1px solid #e5e7eb;border-top-left-radius:10px;border-bottom-left-radius:10px}
+.agds-table tbody tr td:last-child,
+.agds-table thead th:last-child{border-right:1px solid #e5e7eb;border-top-right-radius:10px;border-bottom-right-radius:10px}
+
+.agds-table tbody tr.is-alt{background:#f1f5f9}
+.agds-table tbody tr.is-alt td{border-color:#e2e8f0}
+.agds-table tbody tr:hover{background:#eaf2ff}
+
+.time{font-weight:800;color:#1f2937}
+.muted{color:#6b7280}
+
+/* situação */
+.status{font-weight:800}
+.status-danger{color:#ef4444}
+
+/* ações */
+.actions{display:flex;gap:10px}
+.actions .icon-btn{
+  width:34px;height:34px;border-color:#cfe1ff;color:#1e40af;border-radius:8px
+}
+
+/* responsivo */
+@media (max-width: 900px){
+  .agds-toolbar{grid-template-columns:1fr;justify-items:center}
+  .agds-tabs{justify-content:center}
+  .agds-table thead{display:none}
+  .agds-table tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
+  .agds-table tbody td{border:none;padding:6px 8px}
+  .actions{grid-column:1/-1;justify-content:flex-end}
+}
