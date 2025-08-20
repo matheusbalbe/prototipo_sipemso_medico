@@ -95,14 +95,24 @@
             <td><span class="status status-success" style="color: #198754;">Atendido</span></td>
             <td class="muted">-</td>
             <td class="actions">
-              <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
-                <!-- link / chain icon para "vincular" -->
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+                  <!-- Ícone de prancheta de médico -->
+                <button class="icon-btn" title="Prontuário médico">
+                <!-- clipboard/medical icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 10v4M10 12h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                </button>
+              <button onclick="irParaFormularioPericia()"  class="icon-btn" title="Atender paciente">
+                <!-- ícone de check/círculo para "atender" -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 10h6M9 14h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
               </button>
-              <button class="icon-btn" title="Editar">
-                <!-- edit -->
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
-              </button>
+            
             </td>
           </tr>
 
@@ -114,12 +124,22 @@
             <td><span class="status status-muted">Não atendido</span></td>
             <td class="muted">-</td>
             <td class="actions">
-                 <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
-                <!-- link / chain icon para "vincular" -->
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-              </button>
-              <button class="icon-btn" title="Editar">
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+   <!-- Ícone de prancheta de médico -->
+                <button class="icon-btn" title="Prontuário médico">
+                <!-- clipboard/medical icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 10v4M10 12h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                </button>
+              <button class="icon-btn" title="Atender paciente">
+                <!-- ícone de check/círculo para "atender" -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 10h6M9 14h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
               </button>
             </td>
           </tr>
@@ -132,12 +152,22 @@
             <td><span class="status status-muted">Não atendido</span></td>
             <td class="muted">-</td>
             <td class="actions">
-                  <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
-                <!-- link / chain icon para "vincular" -->
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-              </button>
-              <button class="icon-btn" title="Editar">
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+       <!-- Ícone de prancheta de médico -->
+                <button class="icon-btn" title="Prontuário médico">
+                <!-- clipboard/medical icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 10v4M10 12h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                </button>
+              <button class="icon-btn" title="Atender paciente">
+                <!-- ícone de check/círculo para "atender" -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 10h6M9 14h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
               </button>
             </td>
           </tr>
@@ -149,12 +179,22 @@
             <td><span class="status status-muted">Não atendido</span></td>
             <td class="muted">-</td>
             <td class="actions">
-                <button class="icon-btn" onclick="vincularMedico()" title="Vincular ao médico">
-                <!-- link / chain icon para "vincular" -->
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 7a5 5 0 0 0-7.07 0l-4.24 4.24a3 3 0 0 0 4.24 4.24l1.06-1.06" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17a5 5 0 0 0 7.07 0l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-              </button>
-              <button class="icon-btn" title="Editar">
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M16.5 3.5l4 4L8 20H4v-4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <!-- Ícone de prancheta de médico -->
+                <button class="icon-btn" title="Prontuário médico">
+                <!-- clipboard/medical icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 10v4M10 12h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                </button>
+              <button class="icon-btn" title="Atender paciente">
+                <!-- ícone de check/círculo para "atender" -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="9" y="2" width="6" height="4" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 10h6M9 14h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
               </button>
             </td>
           </tr>
@@ -264,4 +304,11 @@
 
 </body>
 <script src="js/agendamentos.js"></script>
+<script>
+  function irParaFormularioPericia() {
+    window.location.href = "formulariopericia.html";
+  }
+</script>
+</script>
+
 </html>
